@@ -1,0 +1,31 @@
+=SEERRO(
+    SES(
+        OU( 
+            E( 
+                LIN() = tbParametros[Valor]; 
+                    ÉCÉL.VAZIA( [@QtdParcela] ) 
+            ); 
+            ÉCÉL.VAZIA( [@QtdParcela] ) 
+        );
+        "";
+        OU( 
+            E( LIN() = tbParametros[Valor]; NÃO( ÉCÉL.VAZIA( [ @NumNF ] ) ) 
+            );
+            E( 
+                LIN() <> tbParametros[Valor]; ÉCÉL.VAZIA( [ @NumNF ] ) 
+            );
+            DESLOC( [ @NumNF ]; - 1; 0) <> [ @NumNF ] ); "0" & 1 & "/" & SE( [@QtdParcela] < 10; "0"; "" ) & [@QtdParcela];
+            OU( 
+                E( 
+                    DESLOC( [ @ApelidoCCred ]; - 1; 0 ) = [ @ApelidoCCred ]; DESLOC( [ @NumNF ]; - 1; 0) = [ @NumNF ] 
+                ) 
+            );
+            SE( 
+                ESQUERDA( 
+                    DESLOC( [@QtdNumParc]; - 1; 0 ); 2 ) + 1 < 10; "0"; "" ) & 
+                    ( ESQUERDA( DESLOC( [@QtdNumParc]; - 1; 0 ); 2 ) + 1 ) & "/" &
+                        SE( 
+                            [@QtdParcela] < 10; "0"; "" ) & [@QtdParcela]
+    );
+    0
+)

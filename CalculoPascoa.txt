@@ -1,0 +1,11 @@
+- Primeira forma - função: ARREDMULTB
+=ARREDMULTB(DATA(AnoRef;5;DIA(MINUTO(AnoRef/38)/2+56));7)-34
+
+- Segunda - sem utilizar a função: DATA
+=ARREDMULTB(DIA(MINUTO(AnoRef/38)/2+56)&"/5"&"/"&AnoRef;7)-34
+
+- Terceira forma - função: ARRED
+=ARRED(DATA(AnoRef;4;1)/7+MOD(19*MOD(AnoRef;19)-7;30)*14%;0)*7-6
+
+- Quarta forma - MOEDA
+=MOEDA(("4/"&AnoRef)/7+MOD(19*MOD(AnoRef;19)-7;30)*14%;)*7-6
